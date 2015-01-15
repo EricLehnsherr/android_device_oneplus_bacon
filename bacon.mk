@@ -40,6 +40,11 @@ PRODUCT_PACKAGES += \
     nfc_nci.bacon \
     com.android.nfc_extras
 
+#Files needed fot boot
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.rc:root/init.rc \
+    $(LOCAL_PATH)/rootdir/etc/install-cm-recovery.sh:system/etc/install-cm-recovery.sh
+
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
