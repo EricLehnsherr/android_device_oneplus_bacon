@@ -572,6 +572,36 @@ service flash_recovery /system/etc/install-cm-recovery.sh
 on property:persist.sys.recovery_update=true
     start flash_recovery
 
+# Temp
+service temp_on /system/bin/logwrapper /system/bin/sh /system/bin/temp start
+    disabled
+    oneshot
+
+service temp_off /system/bin/logwrapper /system/bin/sh /system/bin/temp stop
+    disabled
+    oneshot
+
+on property:persist.sys.temp=1
+    start temp_on
+
+on property:persist.sys.temp=0
+    start temp_off
+
+# Extra
+service extra_on /system/bin/logwrapper /system/bin/sh /system/bin/extra start
+    disabled
+    oneshot
+
+service extra_off /system/bin/logwrapper /system/bin/sh /system/bin/extra stop
+    disabled
+    oneshot
+
+on property:persist.sys.extra=1
+    start extra_on
+
+on property:persist.sys.extra=0
+    start extra_off
+
 service racoon /system/bin/racoon
     class main
     socket racoon stream 600 system system

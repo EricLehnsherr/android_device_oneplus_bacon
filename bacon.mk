@@ -42,8 +42,7 @@ PRODUCT_PACKAGES += \
 
 #Files needed fot boot
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.rc:root/init.rc \
-    $(LOCAL_PATH)/rootdir/etc/install-cm-recovery.sh:system/etc/install-cm-recovery.sh
+    $(LOCAL_PATH)/rootdir/etc/init.rc:root/init.rc
 
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
